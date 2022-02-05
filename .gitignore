@@ -1,0 +1,15 @@
+# dependencies
+.ipynb_checkpoints
+
+# testing
+
+# production
+/faking_data
+
+# misc
+Jupyter Notebook (anaconda3).lnk
+
+#data
+911.csv
+
+
