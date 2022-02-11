@@ -31,7 +31,7 @@ df = pd.read_excel('./Encuesta sobre Acufenometría.xlsx')
 # a-1) DataFrame con: Nombre y Apellido y Estados_de_USA
 # Building dataframe for users
 df_users = df[['Nombre y Apellido', 'Estados_de_USA']]
-print('Cantidad de celdas con valores "null":\n ')
+# print('Cantidad de celdas con valores "null":\n ')
 df_users.isna().sum()
 # Capitalizing first letters of each word.
 df_users.loc[:, 'Nombre y Apellido'] = df_users.loc[:, 'Nombre y Apellido'].apply(lambda x: x.lower().title())
@@ -44,18 +44,18 @@ for item in df_users['Estados_de_USA'].unique():
 # Cantidad de celdas duplicadas eliminadas:
 df_users_with_duplicates = df_users
 df_users = df_users.drop_duplicates()
-print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_users)))
+# print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_users)))
 # df_users.head(5)
 
 # a-2) DataFrame con: Nombre y Apellido, Estados_de_USA y las respuestas y ¿En que área principalmente desarrollas tu profesión?(Si quieres ingresar más de una opción por favor ingresa las opciones en el campo "Otros").¶
 # Building dataframe for sectors
 df_sector = df_users_with_duplicates[['Nombre y Apellido', 'Estados_de_USA']]
 df_sector['sector'] = df[['¿En que área principalmente desarrollas tu profesión? (Si quieres ingresar más de una opción por favor ingresa las opciones en el campo "Otros")']]
-print('Cantidad de celdas con valores "null":\n ')
+# print('Cantidad de celdas con valores "null":\n ')
 df_sector.isna().sum()
 df_sector = df_sector.drop_duplicates()
 len(df)-len(df_sector)
-print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_sector)))
+# print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_sector)))
 # Original options in the survey.
 list_sector= ['Medicina Laboral',
               'Tratamiento del lenguaje en niños',
@@ -140,12 +140,12 @@ df_sector = df_sector.drop('sector', axis = 1)
 # Building dataframe for sounds
 df_sound = df_users_with_duplicates[['Nombre y Apellido', 'Estados_de_USA']]
 df_sound['sound'] = df[['Respecto a los estímulos utilizados para COMPARAR el acúfeno, éstos pueden ser...']]
-print('Cantidad de celdas con valores "null":\n ')
+# print('Cantidad de celdas con valores "null":\n ')
 df_sound = df_sound.dropna()
 df_sound.isna().sum()
 df_sound = df_sound.drop_duplicates()
 # len(df)-len(df_sound)
-print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_sound)))
+# print('Cantidad de celdas duplicadas eliminadas: ' + str(len(df)-len(df_sound)))
 # Original options in the survey.
 list_sound=['Tono Puro',
             'Ruido de Banda Estrecha',
@@ -255,13 +255,6 @@ max_y_val_sound=df_sound_gb_T.sort_values(by='countries_by_sound',ascending=Fals
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 
-# body {
-#     margin: 10%;
-#     overflow-x: hidden;
-#     text-align: center;
-#     font-family: "FreeSerif-Italic";
-#     font-size: 2.5rem;
-# }
 title = {
     'color': '#696969',
     'font': 'morebi'
@@ -278,10 +271,8 @@ tab_style = {
     'color': title ['color'],
     'border-radius': '5px',
     'background-color': '#F9F9F9',
-    # 'margin': '10px',
     'padding': '15px',
     'position': 'relative',
-    # 'box-shadow': '2px 2px 2px lightgrey'
 }
 
 tab_selected_style = {
@@ -289,22 +280,9 @@ tab_selected_style = {
     'fontWeight': 'bold',
     'border-radius': '5px',
     'background-color': 'transparent',
-    # 'margin': '10px',
     'padding': '15px',
     'position': 'relative',
-    # 'box-shadow': '2px 2px 2px lightgrey'
-    
 }
-
-# body = {
-#     'font-family': 'Poiret One', 'cursive':''
-# }
-
-# fig.update_layout(
-#     plot_bgcolor=body_color['background'],
-#     paper_bgcolor=body_color['background'],
-#     font_color=text ['color']
-# )
 
 
 app.layout = html.Div(style={'backgroundColor': '#F9F9F9'},children=[
@@ -319,18 +297,18 @@ app.layout = html.Div(style={'backgroundColor': '#F9F9F9'},children=[
 
         html.Div(
             [
-            # html.Img(src="https://lh3.googleusercontent.com/btBjwtLStSnnoZ_Xbzq4_D3C9_MB5h-eCtc3zC54nJtLGdhhc4f_y9MVEg4hBhc1WEAjRNO7sxj4jjmuLGzVK2WRLegaqgZVJ3SRqCho5hRnEAZDSQwyYuXIJ2NTX-nrPu7PWsrUD9fiuns_j17gYe9o7nCEzwyb_062NTkUHu5y0Prr3f0clgNWyjTaqq0kZJRj2crvr6QZupqaxibHdTjRk-gmG-G_4Tf7Oufp73wnQyl60HnIgXWrWjUzQ7zfv71yzyxGfuS44fVIVE9cPGTXhwMVLLOpby8df7CAoDq8cZBeIFXYH9uf2qt87KtN0FxgmAzeCrOCxSMi54rLSty-VE_Qz4I5uQQZv98izZrFIt2vwQsH_Ky6kXyllqtYA-sJTwoR2ceo-ger8fIbQj9fFWDcI16Jhw79xgkQNIkUMBB1uM8gWnZm4DjrMaXuZElcbAigfT8k4769hItUD_a3uJKI7P3DNVDiBXBWtq2q7j9hPv1pr1WZT1aZTBu7i8R_49eYF1HgbWJoyti1hHZheyj1WDbFWo-N3rheEY0MMuKV6O7FvWjEXNW8uvf8fIoWXOTwwigY9BPInRUdUrYN2lu0Cst_V6dZCP1GdeiQukDCFsF_bDo8o69ZzxdH_Cl0oOH7Ofylkqzmf4vvnO-FkV6ditHW_0BUpQXhqdjniccWkEgeX-V097le4ePh9ZuegSUr-jlDr56Mbhu33I5ETg=w917-h322-no?authuser=0",
-            #          style={'width': '16.25%', 'float': 'left'}
-            #          ),
-            # html.A(
-            #     [html.Button(
-            #         "Learn More",
-            #         id="learnMore",
-            #         style={'width': '16.25%', 'transform': 'translate(0%, 50%)', 'float': 'right', 'height': '38px', 'padding': '0 30px', 'color': '#555', 'text-align': 'center', 'font-size': '11px', 'font-weight': '600', 'line-height': '38px', 'letter-spacing': '.1rem', 'text-transform': 'uppercase', 'text-decoration': 'none', 'white-space': 'nowrap', 'background-color': 'transparent', 'border-radius': '4px', 'border': '1px solid #bbb', 'cursor': 'pointer', 'box-sizing': 'border-box' }
-            #     )],
-            #     href="https://colab.research.google.com/drive/1jCDtsgkZBYs_OO_huSPt9e2xdwh851ZS?usp=sharing"
+            html.Img(src="https://lh3.googleusercontent.com/8fYOMwmNy96LCbxvQK0cKDbHXEXr81F1z_9GUBOqOUfOJLmnHe5SRu7POY77PV195fuutoCVwoT1qkT_Dq51CsMXDwMcyfTv11SJx3STyNSACIibWKv5GTgxjDRE3YPT71-7iZ1tJdThT880t2C3a27EBrPpYlNstX0S0u07KrJhoYZI7PJmtWCNAeaX5As3BMv6p_w0CAUlsblmTRIspTWbK8C2yJU4F5gZP_Do9EGu_VE9VCrPIoZ_2zEQvHxennVF7Nx0_y3ObXXv3C8vwiy5OEU-DNGHeRsQm-ZJT0lTC0HnYZwfK74D-eFG9YAbSuraXnAtK2DO7plMgh0Ws4XArBAQvdAwYEacPwSHCrcf_3x474J9zLN61vMKaMJJ-WLx9w6E6rU6oKGdUWV01V1NOnoYZD_XZIoDTmnS-5yweQvAF0NgNhi3Gz9QpzL70L0eHENEvJjfSuVE3sxX--wB2WTExF2ipc0wdI2i-RP0TlogbO4r93MEsRDm4j5WQdcYy_ox5ixSH58Mmz0H5LfK_COypXe7n14-yrRa3tMmCcODj9ENn8j6E6dg9suCCgJC2g434Ik30GEGh3ulZ-p_Gk0KKuZVhROdA3h3b8IeQ8B1WuI6vXvhtLsvAqakYMBzIsi89E2Mym3X3e90zuKPwKKxUHyxJxX0nJKr2MHNpiBB4olRZ1IJJJpMXk3ZWhYJ0yGji-baVz4NHBr6FEPiZw=w941-h659-no?authuser=0",
+                     style={'width': 'auto', 'height': '80px', 'float': 'left'}
+                     ),
+            html.A(
+                [html.Button(
+                    "Learn More",
+                    id="learnMore",
+                    style={'width': '16.25%', 'transform': 'translate(0%, 50%)', 'float': 'right', 'height': '38px', 'padding': '0 30px', 'color': '#555', 'text-align': 'center', 'font-size': '11px', 'font-weight': '600', 'line-height': '38px', 'letter-spacing': '.1rem', 'text-transform': 'uppercase', 'text-decoration': 'none', 'white-space': 'nowrap', 'background-color': 'transparent', 'border-radius': '4px', 'border': '1px solid #bbb', 'cursor': 'pointer', 'box-sizing': 'border-box' }
+                )],
+                href="https://github.com/echestare/Audiometry_challenge_Data_Analyst"
                 
-            # ),
+            ),
             html.H1(
                 children='DASHING STATS', 
                 style={'textAlign': 'center', 'color': title ['color'], 'font_family': 'Montserrat-Regular', 'width': '83.5%'} 
@@ -363,7 +341,7 @@ app.layout = html.Div(style={'backgroundColor': '#F9F9F9'},children=[
                     "background": "#c7fff5"}
                 )]
                 , style={
-                    'background-image': 'url(https://lh3.googleusercontent.com/H_uxdjLuPBbdFvdWPoiNFTFd4tAjlGBxmtlWgSjJlA8DIuV2sxiKB3n4XukZpeNKequYZuW4-h-bYIflU0qj7aA3c0CAGWbQvRYFh-5C0claPAH-y9Zq7Jjw3WYdYC8J7WL9edaJVsUvAJ3aU3AN1XwRgpnhEvzZsnRqgDs28QRotHf6IaYMNLcvpZY1ys8iUVbhc7SlaA6lp83AlYBjEfKnhmgPh-NAzrezbMSYHcMDuzWC3YmmBrJb2UZLtwgHV22hmALTEA2qN_NR1GP-fJAbREW2Xi2KOkSYJFb1x7d9Np39bHDS4vCMMpqVQgGv6c0GgV6dl-YjpZKMlMs5ccvcmJE6_Zmmcx3cbdysw44jcFqxG3OcMrTtnH4H-uAp80D-e5_AXGWqGW7xuaNzYnzZjlM-DcsqNb1B_GQ537H6V71ahDxPi7UOEt1hg3w4_FdCk7NyKvuzGvkl-J7oZmjI8gGY2JFkz0-S3fLwMGNY44TIFFf455aer4w5V89-5yPGs90CqEli-c-TnrN9SHKxzeko-gm_eg5NcR-JeZ5yDgEsV4wb8SqMgdwovJPe7bk4-EPL4uGBjye_TyZZ3cCGpsCMHCeUPW4xyR66VPXb3thx8wIUJV4d10TQDQa3OZfXYJ2BshZwDT4hV4Qasqb5tAds9KdNGV3w-PVMDLn7jGC1L5BJH5TPJy8MKOchk0YIwbTmY5ldkGOFrOQYx23KYA=w433-h304-no?authuser=0)',
+                    # 'background-image': 'url()',
                     # 'background-image': 'url(/nbextensions/background.jpg)',
                     'height': '100%',
                     'width': '100%',
@@ -387,9 +365,9 @@ def display_image(n):
     if n == 0:
         img = html.Div([
             html.Div(children=[dcc.Markdown('&nbsp' )],style={'font-size': '20rem', 'background-color': '#ffffff'}),
-            # html.Img(src="https://lh3.googleusercontent.com/p9cC-ahqs6yV6pCaEYBhtL4o4Lfc9cX9_WtuXKpFqQJgBN-20xEheJZyfCKjQRiLm5y5S6lS6h7FOEFiWofIOSx1si7GiRlRVBQti_bujq4SeK3u2IP2DMeHmnjXwMWp1s1lbVnAMGBkTVBNxWQIovc1gDSpIicqoNMV-6S7KW0C9w1p8X6JliA1AEAon4wYGqqJ6nVmN-ghnyDIuaKz7V1O96BeCblNmztWH2G6BeNrS_2GUIn3a-2aJstpYwFfDmtHwvb3m5za5gRRI5kFQyQkzp3H_h8do4dAf3ayLClUoB-0C13u6CChEhvf_jRExP5ptksKwlLi4CZ0CJJx3Lxodznidu3uZJZ-8qB-jewj5cfd70Zu7Bi3DTZ6RIyVPLB-ZlYRYr6q9ZUqIv470iO6V0TCVEh20hKLAVHVwrRJ6KF3-sUhmsfwxpQvsoSVnOpiiawqOwGRsLs8kTsRAFZFUvlZfHirQ7iXyfBx17EvlscLjBhN1ENwpSyLD5-f_hFCY_EoXr9VWSqsHr_aQ1O-YvAiS1ZopqsYBV1VUpSe04EAy9Mvu2K2Z_j9OLCVHa6kKerhFyR5echfTEMSX_FEdTgAH53hxg_WzT4xMcN9WQ_SrrZ0_JN-IKa9f8lbTUIGkfctymxIJeZor2oOhCUfJpXbHMmjHTjg_cZu2eGYu3XTmNsnGseoBMiDk1eHuiyxPVHH5BtlAbTOEp8OHwd1AA=w1283-h527-no?authuser=0"
-            #          , style={'background-color': '#ffffff', 'z-index': '1000', 'position': 'absolute' , 'left': '50%', 'top': '50%', 'transform': 'translate(-45%, -45%)', 'width': '100%', 'height': 'auto'}
-            #          ),
+            html.Img(src="https://lh3.googleusercontent.com/8fYOMwmNy96LCbxvQK0cKDbHXEXr81F1z_9GUBOqOUfOJLmnHe5SRu7POY77PV195fuutoCVwoT1qkT_Dq51CsMXDwMcyfTv11SJx3STyNSACIibWKv5GTgxjDRE3YPT71-7iZ1tJdThT880t2C3a27EBrPpYlNstX0S0u07KrJhoYZI7PJmtWCNAeaX5As3BMv6p_w0CAUlsblmTRIspTWbK8C2yJU4F5gZP_Do9EGu_VE9VCrPIoZ_2zEQvHxennVF7Nx0_y3ObXXv3C8vwiy5OEU-DNGHeRsQm-ZJT0lTC0HnYZwfK74D-eFG9YAbSuraXnAtK2DO7plMgh0Ws4XArBAQvdAwYEacPwSHCrcf_3x474J9zLN61vMKaMJJ-WLx9w6E6rU6oKGdUWV01V1NOnoYZD_XZIoDTmnS-5yweQvAF0NgNhi3Gz9QpzL70L0eHENEvJjfSuVE3sxX--wB2WTExF2ipc0wdI2i-RP0TlogbO4r93MEsRDm4j5WQdcYy_ox5ixSH58Mmz0H5LfK_COypXe7n14-yrRa3tMmCcODj9ENn8j6E6dg9suCCgJC2g434Ik30GEGh3ulZ-p_Gk0KKuZVhROdA3h3b8IeQ8B1WuI6vXvhtLsvAqakYMBzIsi89E2Mym3X3e90zuKPwKKxUHyxJxX0nJKr2MHNpiBB4olRZ1IJJJpMXk3ZWhYJ0yGji-baVz4NHBr6FEPiZw=w941-h659-no?authuser=0"
+                     , style={'background-color': '#ffffff', 'z-index': '1000', 'position': 'absolute' , 'left': '50%', 'top': '50%', 'transform': 'translate(-45%, -45%)', 'width': '40%', 'height': 'auto'}
+                     ),
             html.Div(children=[dcc.Markdown('&nbsp' )],style={'font-size': '20rem', 'background-color': '#ffffff'})
             ])
     else:
@@ -725,13 +703,11 @@ def update_bar_selector(value):
 
 
     # Determining a subplot grid.
-    fig_country_by_sound = make_subplots(rows=5, cols=3,specs=[ [{},  {'type':'domain','colspan': 2, 'rowspan': 5}, None],[{'rowspan': 3}, {}, {}],[{}, {}, {}],[{}, {}, {}],[{}, {}, {}] ])#, subplot_titles=("Áreas de desarrollo por Estados_de_USA", "Profesionales por Estados_de_USA"))
+    fig_country_by_sound = make_subplots(rows=5, cols=3,specs=[ [{},  {'type':'domain','colspan': 2, 'rowspan': 5}, None],[{'rowspan': 3}, {}, {}],[{}, {}, {}],[{}, {}, {}],[{}, {}, {}] ])
     # Plotting
     fig1 = px.bar(to_plot, x=to_plot[list_tmp].index, y=to_plot[list_tmp].values, text=to_plot[list_tmp].values)
-    fig2 = px.pie(to_plot, values=to_plot[list_tmp].values, names=to_plot[list_tmp].index)#, hole=.3)
+    fig2 = px.pie(to_plot, values=to_plot[list_tmp].values, names=to_plot[list_tmp].index)
     # Colors
-    # colors = _BRAND__colors_l if len(df_areas_by_country.index)>len(_BRAND__colors_f2) else _BRAND__colors_l[10:-4] #_BRAND__colors_f2[3:]
-    # colors = [_BRAND__colors_l[i] for i,item in enumerate(_BRAND__colors_l) if i%2 == 0][3:]
     fig1.update_traces(marker_color=colors,textposition='outside')
     fig2.update_traces(textposition='inside', textinfo='percent', pull=[0.1, 0.06, 0.02, 0.02, 0.02, 0.02, 0.02], marker=dict(colors=colors), rotation=0)
 
@@ -749,7 +725,6 @@ def update_bar_selector(value):
 
     len_list_tmp = len(list_tmp)
 
-    # return fig_country_by_sound
     return html.Div([
         html.P(children=["Cantidad de PAÍCES donde lo hacen: ", len_list_tmp]),
         html.P(children=["Cantidad de DOCTORES que lo hacen: ", docs4]),
@@ -757,11 +732,9 @@ def update_bar_selector(value):
         ])
 
 
-# app.server.run()
 
 if __name__ == '__main__':
     app.run_server(debug=True, dev_tools_hot_reload=True, threaded=True)
-    # app.run_server()
 
 
 
