@@ -110,7 +110,7 @@ A continuación se presentan los links hacia los códigos funcionando en Colabor
 
 - Comparación de **modelos de algoritmos para predecir** la relación el `Código Postal` a partir de la `latitud y longitud`: Correlación de Pearson, Regresión Lineal, k-means, Hierarchical clustering, `Árbol de regresión (99%)`.
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_1_data.jpg" alt="drawing" height ="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_1_data.jpg" alt="drawing" widtht ="800"/>
 
 ||||
 |----------------|-------------------------------|-----------------------------|
@@ -124,14 +124,14 @@ A continuación se presentan los links hacia los códigos funcionando en Colabor
 - Dataset: encuesta a doctores sobre uso de audiómetro \_BRAND\_, datos personales y experiencia profesional.
 
 - **SQL Queries**
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_data.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_data.jpg" alt="drawing" width="800"/>
 
 |||
 |-------------------------------|-----------------------------|
 |<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_data_contacto.jpg" alt="drawing" width="400"/>|<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_data_acuf.jpg" alt="drawing" width="400"/>|
 |||
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_query.jpg" alt="drawing" height="350"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_2_query.jpg" alt="drawing" width="800"/>
 
 <!-- 2 3 -->
 ### [2_3_Análisis_Exploratorio_de_los_Datos___EDA.ipynb](https://colab.research.google.com/drive/1vVpQnQCKTf9rGFMGKVL2OCRXrmlauS2r?usp=sharing)
@@ -140,16 +140,16 @@ A continuación se presentan los links hacia los códigos funcionando en Colabor
 
 - **Análisis de Datos** de situaciones de interés específicas.
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data.jpg" alt="drawing" width="800"/>
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data_area.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data_area.jpg" alt="drawing" width="800"/>
 
 |||
 |-------------------------------|-----------------------------|
 |<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_area_country.jpg" alt="drawing" width="400"/>|<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_country_area.jpg" alt="drawing" width="400"/>|
 |||
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data_sound.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_3_data_sound.jpg" alt="drawing" width="800"/>
 
 |||
 |-------------------------------|-----------------------------|
@@ -176,9 +176,9 @@ A continuación se presentan los links hacia los códigos funcionando en Colabor
 
 - **Análisis de Datos** de situaciones de interés específicas.
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_5_data1.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_5_data1.jpg" alt="drawing" width="800"/>
 
-<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_5_data2.jpg" alt="drawing" height="300"/>
+<img src="https://github.com/echestare/Audiometry_challenge_Data_Analyst/blob/main/Snapshots/2_5_data2.jpg" alt="drawing" width="800"/>
 
 |||
 |-------------------------------|-----------------------------|
